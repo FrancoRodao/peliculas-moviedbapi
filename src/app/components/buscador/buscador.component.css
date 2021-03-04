@@ -1,0 +1,33 @@
+.contenedor {
+  background-color: #fafafa;
+  margin: 1rem;
+  padding: 1rem;
+  border: 2px solid #ccc;
+}
+
+.contenedor2{
+  margin: 1rem;
+}
+
+.example-form {
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+mat-spinner{
+  margin: 2rem auto
+}
+
+
+ 
+
+
+
+
+  
+

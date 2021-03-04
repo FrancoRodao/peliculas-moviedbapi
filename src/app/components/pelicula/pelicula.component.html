@@ -1,0 +1,45 @@
+<!-- <div *ngIf="id" class="contenedor">
+  <<div class="boton">
+        <button class="btn btn-danger ml-5 mt-3 text-center"><i class="fas fa-arrow-left"></i> Regresar</button>
+    </div>
+
+  <img [src]="imgPelicula" />
+
+    <div class="contenido">
+        <div>dfg</div>
+        <div></div>
+    </div>
+
+</div> -->
+
+<div class="contenedor">
+  <div class="imagen"><img [src]="imgPelicula | image" alt="" /></div>
+  <div class="contenido">
+    <div class="contenido2">
+      <h4 class="titulo">
+        {{ tituloPelicula }}
+      </h4>
+
+      <p class="mb-2">
+        {{ descripcionPelicula }}
+      </p>
+      <div class="container mr-3s mt-4">
+        <button
+        *ngIf="servicePeliculas.toBack == 'search'"
+          [routerLink]="['/buscador']"
+          class="btn btn-outline-danger btn-block"
+        >
+          Regresar...
+        </button>
+
+        <button
+        *ngIf="servicePeliculas.toBack == 'home'"
+        [routerLink]="['/home']"
+        class="btn btn-outline-danger btn-block"
+      >
+        Regresar...
+      </button>
+      </div>
+    </div>
+  </div>
+</div>

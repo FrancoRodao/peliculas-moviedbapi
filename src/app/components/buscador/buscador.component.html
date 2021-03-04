@@ -1,0 +1,51 @@
+<div class="contenedor2">
+  <form class="example-form" [formGroup]="forma">
+    <mat-form-field class="example-full-width">
+      <mat-label>Busca tú pelicula</mat-label>
+      <input
+        (keyup)="buscarPelicula()"
+        formControlName="buscador"
+        matInput
+        type="search"
+        placeholder="Batman"
+      />
+    </mat-form-field>
+  </form>
+</div>
+
+<div *ngIf="peliculasEncontradas.length > 0">
+  <div *ngIf="cargando == true">
+    <mat-spinner></mat-spinner>
+  </div>
+</div>
+
+<div *ngIf="cargando == false" class="container">
+  <div
+    *ngIf="peliculasEncontradas.length > 0"
+    class="row row-cols-1 row-cols-md-3"
+  >
+    <div
+      *ngFor="let pelicula of peliculasEncontradas; let i = index"
+      class="col mb-4"
+    >
+      <div class="card">
+        <img
+          (click)="servicio.goPelicula(pelicula.id,'search')"
+          [src]="pelicula.poster_path | image"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ pelicula.title }}</h5>
+          <p class="card-text">{{ pelicula.overview | slice: 0:200 }}...</p>
+          <button
+            (click)="servicio.goPelicula(pelicula.id,'search')"
+            class="btn btn-outline-primary"
+          >
+            Ver mas
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

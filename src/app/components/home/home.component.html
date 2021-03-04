@@ -1,0 +1,70 @@
+<div *ngIf="cargando == true">
+  <mat-spinner></mat-spinner>
+</div>
+
+<div *ngIf="cargando == false" class="cont">
+  <div class="cartelera">
+    <h4>Peliculas en cartelera</h4>
+    <hr />
+  </div>
+
+  <div *ngIf="cartelera" class="contenedor">
+    <div
+      *ngFor="let pelicula of cartelera; let i = index"
+      class="item{{ i + 1 }}"
+    >
+      <img
+        (click)="servicePeliculas.goPelicula(pelicula.id, 'home')"
+        [src]="pelicula.backdrop_path | image"
+        alt=""
+      />
+      <p class="parrafo">{{ pelicula.title }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="cargando == false" class="cont">
+    <div class="cartelera">
+      <h4>Peliculas en cartelera</h4>
+      <hr />
+      <div class="conte">
+        <mdb-carousel class="carousel slide carousel-fade" [animation]="'fade'">
+          <mdb-carousel-item *ngFor="let pelicula of carteleraTendencia; let i = index">
+            <div (click)="servicePeliculas.goPelicula(pelicula.id, 'home')" class="view w-100">
+              <img width="500px" height="281px" class="d-block w-100" [src]="pelicula.backdrop_path | image" alt="First slide" />
+              <div class="mask rgba-black-light waves-light" mdbWavesEffect></div>
+            </div>
+            <div class="carousel-caption">
+              <h3 style="color: violet;" class="h3-responsive">{{pelicula.title}}</h3>
+            </div>
+          </mdb-carousel-item>
+        </mdb-carousel>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<br>
+<br>
+
+
+
+<!-- <div class="cartelera">
+  <h4>Peliculas en tendencia</h4>
+  <hr />
+</div>
+
+<div *ngIf="cartelera" class="contenedor">
+  <div
+    *ngFor="let pelicula of carteleraTendencia; let i = index"
+    class="item{{ i + 1 }}"
+  >
+    <img
+      (click)="servicePeliculas.goPelicula(pelicula.id, 'home')"
+      [src]="pelicula.backdrop_path | image"
+      alt=""
+    />
+   
+  </div> -->
+
+

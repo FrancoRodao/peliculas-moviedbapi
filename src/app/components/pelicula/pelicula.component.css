@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 1;
+    max-width: 800px;
+    margin: 50px auto;
+    column-gap: 20px;
+}
+
+.imagen img{
+    max-width: 100%;
+}
+
+.imagen{
+    align-self: center;
+    grid-column: 1/2;
+
+}
+
+.contenido{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1;
+}
+.titulo{
+    margin-bottom: 10px;
+    overflow-y: hidden;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
